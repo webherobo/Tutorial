@@ -45,5 +45,10 @@ return [
         ],
         */
     ],
+	'modules' => [
+	'webbbs' => [
+			'class' => 'app\modules\webbbs\WebbbsModule',
+		],
+	],
     'params' => $params,
 ];
