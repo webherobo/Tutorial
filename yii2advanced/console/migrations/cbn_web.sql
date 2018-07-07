@@ -1,9 +1,9 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 116.62.200.83_3306
+Source Server         : 127.0.0.1_3306
 Source Server Version : 50711
-Source Host           : 116.62.200.83:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : webherboo
 
 Target Server Type    : MYSQL
