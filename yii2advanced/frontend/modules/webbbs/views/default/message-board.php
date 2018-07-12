@@ -22,8 +22,8 @@ use yii\captcha\Captcha;
         <?= $form->field($model, 'status')->radioList(['1'=>'男','0'=>'女']) ?>
         <?= $form->field($model, 'is_del')->radioList(['1'=>'是','0'=>'否']) ?>
         <?= $form->field($model, 'content')->textarea(['rows'=>3]) ?>
-        <?= $form->field($model, 'send_time') ?>
-        <?= $form->field($model, 'read_time') ?>
+        <?= $form->field($model, 'send_time')->textInput(['type' => 'datetime']) ?>
+        <?= $form->field($model, 'read_time')->textInput(['type' => 'datetime']) ?>
         <?= $form->field($model, 'sender_name') ?>
         <?= $form->field($model, 'receiver_name') ?>
 		<?= Html::img('@web/images/gw-bg.jpg', ['alt' => 'My logo','width'=>86]) ?>
