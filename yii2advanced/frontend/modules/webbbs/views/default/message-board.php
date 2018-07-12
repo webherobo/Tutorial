@@ -12,22 +12,22 @@ use yii\captcha\Captcha;
 
     <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'pid') ?>
-        <?= $form->field($model, 'cate_type') ?>
-        <?= $form->field($model, 'cate_id') ?>
+        <?= $form->field($model, 'pid')->textInput(['maxlength' => 20]) ?>
+        <?= $form->field($model, 'cate_type')->passwordInput(['maxlength' => 20]) ?>
+        <?= $form->field($model, 'cate_id')->hiddenInput(['value'=>0])   ?>
         <?= $form->field($model, 'fromid') ?>
         <?= $form->field($model, 'toid') ?>
-        <?= $form->field($model, 'type') ?>
-        <?= $form->field($model, 'msgtype') ?>
-        <?= $form->field($model, 'status') ?>
-        <?= $form->field($model, 'is_del') ?>
-        <?= $form->field($model, 'content') ?>
+        <?= $form->field($model, 'type')->dropDownList(['1'=>'大学','2'=>'高中','3'=>'初中'], ['prompt'=>'请选择','style'=>'width:120px']) ?>
+        <?= $form->field($model, 'msgtype')->checkboxList(['0'=>'篮球','1'=>'足球','2'=>'羽毛球','3'=>'乒乓球'])  ?>
+        <?= $form->field($model, 'status')->radioList(['1'=>'男','0'=>'女']) ?>
+        <?= $form->field($model, 'is_del')->radioList(['1'=>'是','0'=>'否']) ?>
+        <?= $form->field($model, 'content')->textarea(['rows'=>3]) ?>
         <?= $form->field($model, 'send_time') ?>
         <?= $form->field($model, 'read_time') ?>
         <?= $form->field($model, 'sender_name') ?>
         <?= $form->field($model, 'receiver_name') ?>
 		<?= Html::img('@web/images/gw-bg.jpg', ['alt' => 'My logo','width'=>86]) ?>
-        <?= $form->field($model, 'sender_useravatar')->textInput(['value'=>Url::to('@web/images/gw-bg.jpg')])  ?>
+        <?= $form->field($model, 'sender_useravatar')->fileInput()  ?>
         <?= $form->field($model, 'receiver_useravatar')->textInput(['value'=>Url::to('@web/images/gw-bg.jpg')]) ?>
         <?= $form->field($model, 'title') ?>
 		<?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
