@@ -1,7 +1,60 @@
 
-   jQuery�����   
+   jQuery插件库   
 
    http://www.jq22.com 
 
-   �ҵĸ��٣����ĸ��࣡ jQuery�����ֻΪ���ṩ��õģ�
-		
+   找的更少，做的更多！ jQuery插件库只为您提供最好的！
+
+更新时间：2017/4/6 上午9:56:43
+
+更新说明：实际项目中使用的时候只需要引用:imgPlugin.js这个就可以了，因为这个是对  imgUp.js的封装。
+
+更新时间：2017/3/30 下午7:06:44
+
+更新说明：一张图删除之后，再次上传同一张无法上传的问题已解决，那时粗心了，嘿嘿
+
+更新时间：2017/3/28 上午11:37:28
+
+更新说明：支持动态创建dom结构的上传，也支持多次页面调用。里面的imgPlugin.js是对这个插件进行的封装。调用方式如下：       
+
+$("#file" + value).takungaeImgup({
+      formData: {
+          "path": "artScene/",
+          "name": value
+      },
+      url: appServer + "/ajax/uploadPic.htm",
+      success: function(data) {},
+      error: function(err) {
+          alert(err);
+      }
+});
+补充的方法
+
+后台配合imgPlugin.js然后调用下面方式，path如果后台设置这里不需要传值，否则后台要get path  , name为图片存数据库字段多图加[]，url为后台控制器路径。成功后，控制器里的返回值仔细看imgplugin.js的uploadImg()方法，需要返回data.error=0和data.url（图片路径），
+
+$("#file").takungaeImgup({
+    formData: {
+        "path": "artScene/",
+        "name": "img[]"
+    },
+    url: appServer + "/ajax/uploadPic.htm",
+    success: function(data) {},
+    error: function(err) {
+        alert(err);
+    }
+});
+path为图片存放路径
+
+1
+2
+<input id="taglocation" name="taglocation" value="" type="hidden">
+<input id="tags" name="tags" value="" type="hidden">
+这两句貌似多余的，每个上传图片的section都有。
+
+就仔细看imgplugin.js的uploadImg()方法好了，
+
+1
+2
+url: appServer + "/ajax/uploadPic.htm", success: function(data) {}, error: function(err) {
+        alert(err);
+这里的success，error都不需要设置，只要设置下url就行了，比如url：'index/imgupload'不过手机上传没有图片压缩功能，所以电脑上用用可以，手机还是不友好。
