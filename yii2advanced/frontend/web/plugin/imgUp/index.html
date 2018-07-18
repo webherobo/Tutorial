@@ -34,6 +34,13 @@
 			</div>
 		</aside>
 		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-		<script src="js/imgUp.js"></script>
+		<script src="js/imgUp.js">
+		$("#file").takungaeImgup({
+					formData:{"path":"art/","name":"iploadPic"},
+					url:appServer+"/ajax/upload.html",
+					success:funtion(data){},
+					error:funtion(error){alert(error);}
+				});
+		</script>
 	</body>
 </html>
